@@ -1,4 +1,3 @@
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
@@ -363,7 +362,7 @@ const projectDetails = {
     title: 'PayloadForge',
     description: 'PayloadForge is an educational payload generation framework designed for security training and penetration testing labs. It provides templates for common web vulnerabilities (XSS, SQL Injection, Command Injection) with context-aware customization. Features include multi-level encoding support (URL, Base64, Hex), payload obfuscation, and JSON export capabilities. All payloads are aligned with OWASP ethical standards for educational purposes.',
     tools: ['Python', 'Jinja2 Templates', 'Base64', 'URL Encoding', 'Regex'],
-    buildSteps: `1. Install Python 3.7+/n
+    buildSteps: `1. Install Python 3.7+
 2. Install required packages: pip install -r requirements.txt
 3. Navigate to the payloadforge directory
 4. Run: python payloadforge.py
@@ -461,22 +460,26 @@ function openModal(projectKey) {
 
   document.getElementById('modalProjectTitle').textContent = project.title;
   document.getElementById('modalDescription').textContent = project.description;
-  
+
   // Generate tools
   const toolsContainer = document.getElementById('modalTools');
   toolsContainer.innerHTML = project.tools.map(tool => 
     `<span class="modal-tool-tag active">${tool}</span>`
   ).join('');
-  
+
   // Generate build steps
-  document.getElementById('modalBuildSteps').textContent = project.buildSteps;
-  
+  const buildStepsContainer = document.getElementById('modalBuildSteps');
+  buildStepsContainer.innerHTML = project.buildSteps
+    .split('\n')
+    .map(step => `<p>${step}</p>`)
+    .join('');
+
   // Generate dependencies
   const depsContainer = document.getElementById('modalDependencies');
   depsContainer.innerHTML = project.dependencies.map(dep => 
     `<li>${dep}</li>`
   ).join('');
-  
+
   document.getElementById('projectModal').classList.add('active');
 }
 

@@ -467,11 +467,11 @@ function openModal(projectKey) {
     `<span class="modal-tool-tag active">${tool}</span>`
   ).join('');
 
-  // Generate build steps
+  // Generate build steps with <br> tags for better formatting in Word
   const buildStepsContainer = document.getElementById('modalBuildSteps');
   buildStepsContainer.innerHTML = project.buildSteps
     .split('\n')
-    .map(step => `<p>${step}</p>`)
+    .map(step => `${step}<br>`)
     .join('');
 
   // Generate dependencies

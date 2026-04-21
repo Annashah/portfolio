@@ -1,4 +1,10 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amna Shabir // Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style>
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
   :root{
@@ -11,7 +17,7 @@
   body{background:var(--bg);color:var(--text);font-family:var(--font-mono);overflow-x:hidden}
   .scanline{position:fixed;top:0;left:0;width:100%;height:2px;background:rgba(0,255,136,0.15);animation:scan 6s linear infinite;pointer-events:none;z-index:999}
   @keyframes scan{0%{top:-2px}100%{top:100%}}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,12,15,0.95);backdrop-filter:blur(8px);z-index:100}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,12,15,0.95);backdrop-filter:blur(8px);z-index:999}
   .logo{font-family:var(--font-head);font-weight:800;font-size:1.1rem;color:var(--accent);letter-spacing:-0.02em}
   .logo span{color:var(--text2)}
   .nav-links{display:flex;gap:2rem}
@@ -36,15 +42,11 @@
   section{padding:4rem 3rem;max-width:1000px;margin:0 auto}
   .sec-label{font-size:0.7rem;letter-spacing:0.2em;color:var(--accent);margin-bottom:2.5rem;display:flex;align-items:center;gap:0.75rem}
   .sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
-
-  /* ABOUT */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
   .about-bio{font-size:0.82rem;color:var(--text2);line-height:1.95;margin-bottom:1rem}
   .skill-list{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem}
   .skill-item{font-size:0.72rem;color:var(--text2);padding:6px 10px;border-left:2px solid var(--border);display:flex;align-items:center;gap:6px}
   .skill-item::before{content:'';width:4px;height:4px;background:var(--accent);flex-shrink:0}
-
-  /* PROJECTS */
   .project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)}
   .project-card{background:var(--surface);padding:1.75rem;position:relative;overflow:hidden;transition:background 0.2s}
   .project-card:hover{background:var(--surface2)}
@@ -58,9 +60,6 @@
   .tag.green{border-color:#1a3a2a;color:#00cc6a;background:#0a1f13}
   .tag.blue{border-color:#0e2d45;color:#00b4e6;background:#06171f}
   .tag.amber{border-color:#3a2a0a;color:#e6a000;background:#1f160a}
-  
-
-  /* EXPERIENCE */
   .exp-timeline{position:relative;padding-left:2rem}
   .exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
   .exp-item{position:relative;margin-bottom:2.75rem}
@@ -74,8 +73,6 @@
   .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
   .exp-bullets li{font-size:0.78rem;color:var(--text2);line-height:1.7;padding-left:1rem;position:relative}
   .exp-bullets li::before{content:'>';position:absolute;left:0;color:var(--accent)}
-
-  /* CONTACT */
   .contact-block{border:1px solid var(--border);padding:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
   .contact-left h2{font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:0.5rem}
   .contact-left p{font-size:0.8rem;color:var(--text2)}
@@ -84,8 +81,6 @@
   .contact-link:hover{color:var(--accent)}
   .contact-link span{color:var(--muted)}
   footer{border-top:1px solid var(--border);padding:1.5rem 3rem;display:flex;justify-content:space-between;font-size:0.68rem;color:var(--muted);letter-spacing:0.08em}
-
-  /* MODAL */
   .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,15,0.95);backdrop-filter:blur(8px);z-index:999;justify-content:center;align-items:center;padding:1rem}
   .modal.active{display:flex}
   .modal-content{background:var(--surface);border:1px solid var(--border);max-width:600px;width:100%;max-height:85vh;overflow-y:auto;padding:2rem;position:relative;animation:slideUp 0.3s ease-out}
@@ -102,7 +97,6 @@
   .modal-deps{list-style:none;padding-left:0}
   .modal-deps li{font-size:0.82rem;color:var(--text2);padding:8px 0;padding-left:1.25rem;position:relative}
   .modal-deps li::before{content:'→';position:absolute;left:0;color:var(--accent)}
-
   @media(max-width:640px){
     nav,section,.hero{padding-left:1.5rem;padding-right:1.5rem}
     .about-grid{grid-template-columns:1fr}
@@ -111,7 +105,9 @@
     .nav-links{gap:1rem}
     .modal-content{max-height:90vh;padding:1.5rem}
   }
-</style>
+  </style>
+</head>
+<body>
 
 <div class="scanline"></div>
 
@@ -128,7 +124,7 @@
 <div class="hero">
   <div class="hero-tag">CYBERSECURITY // AI/ML // NETWORKING ENGINEER</div>
   <h1><span class="dim">Hi, I'm</span><br><span class="hi">Amna Shabir</span></h1>
-  <p class="hero-sub">Results-driven IT & Cybersecurity professional with 2.5+ years of hands-on experience in penetration testing, network security, and AI/ML development. I build recon frameworks, AI-powered automation, and secure network infrastructures.</p>
+  <p class="hero-sub">Results-driven IT & Cybersecurity professional with 2.5+ years of hands-on experience in penetration testing, network security, and AI/ML development. I build recon frameworks, AI-driven security proofs-of-concept, and offensive security tooling for real-world experimentation.</p>
   <div class="badges">
     <span class="badge hot">OFFENSIVE SECURITY</span>
     <span class="badge hot">AI / ML</span>
@@ -148,8 +144,8 @@
   <div class="sec-label">// ABOUT</div>
   <div class="about-grid">
     <div>
-      <p class="about-bio">I'm a cybersecurity and AI/ML professional with <strong style="color:var(--text)">2.5+</strong> years of experience, building offensive security tooling , Reverse engineering frameworks and IOT firmware.</p>
-      <p class="about-bio">My work spans CLI-based vulnerability tools, AI-powered automation systems, network configuration, Reverse Engineering and IoT. I hold a <strong style="color:var(--text)">Google Cybersecurity Professional Certificate</strong> and multiple Cisco Networking Academy certifications.</p>
+      <p class="about-bio">I'm a cybersecurity and AI/ML professional with <strong style="color:var(--text)">2.5+</strong> years of experience, building offensive security tooling, reverse engineering solutions, and hands-on experimentation labs for real threats. </p>
+      <p class="about-bio">My work spans CLI-based vulnerability tools, AI-powered automation systems, network configuration, and IoT analysis. I hold a <strong style="color:var(--text)">Google Cybersecurity Certificate</strong> and have participated in national digital forensics challenges. </p>
       <p class="about-bio">Currently pursuing a B.S. in Information Technology at <strong style="color:var(--text)">Shaheed Benazir Bhutto University</strong> (2024–2028).</p>
     </div>
     <div>
@@ -163,7 +159,7 @@
         <div class="skill-item">Python</div>
         <div class="skill-item">Machine Learning</div>
         <div class="skill-item">SQL</div>
-         <div class="skill-item">SIEM Tools</div>
+        <div class="skill-item">SIEM Tools</div>
         <div class="skill-item">Cisco Networking</div>
       </div>
     </div>
@@ -175,50 +171,109 @@
   <div class="sec-label">// PROJECTS</div>
   <div class="project-grid">
 
+    <!-- ReconKit Project -->
     <div class="project-card" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0;cursor:pointer" data-project="reconkit">
       <div style="padding:2rem;border-right:1px solid var(--border)">
-        <div style="display:inline-block;font-size:0.62rem;letter-spacing:0.15em;padding:3px 10px;background:#0d1f17;border:1px solid #1a4a2a;color:#00dd77;margin-bottom:1rem">FEATURED // OFFENSIVE TOOLING</div>
-        <div class="card-title" style="font-size:1.3rem;margin-bottom:0.75rem">ReconKit</div>
-        <p class="card-desc">Modular CLI-based reconnaissance framework integrating WHOIS lookup, DNS enumeration, subdomain discovery via crt.sh (Certificate Transparency), port scanning via Nmap, banner grabbing, and technology fingerprinting. Reduced manual recon time by 70%.</p>
-        <div class="tag-row">
-          <span class="tag green">PYTHON</span>
-          <span class="tag green">NMAP</span>
-          <span class="tag blue">PASSIVE RECON</span>
-          <span class="tag blue">DNS</span>
-          <span class="tag">OWASP</span>
-          <span class="tag">HTML REPORTS</span>
-        </div>
+        <div style="display:inline-block;font-size:0.62rem;letter-spacing:0.15em;padding:3px 10px;background:#0d1f17;border:1px solid #1a4a2a;color:#00dd77;margin-bottom:1rem">FEATURED PROJECT // OFFENSIVE TOOLING</div>
+        <div class="card-title" style="font-size:1.3rem;margin-bottom:0.75rem">ReconKit — Concurrent Reconnaissance Framework</div>
+        <p class="card-desc">
+          <strong>Problem:</strong> Security reconnaissance tools are often fragmented, slow, or difficult to extend for large-scale analysis.<br><br>
+          <strong>Approach:</strong><br>
+          • Designed a modular reconnaissance framework in Python (~1500 lines)<br>
+          • Implemented concurrent scanning for significantly improved performance<br>
+          • Integrated multiple reconnaissance techniques into a unified and extensible pipeline<br>
+          • Containerized the solution using Docker for easy deployment and reproducibility<br><br>
+          <strong>Key Features:</strong><br>
+          • Parallelized scanning workflows<br>
+          • Modular architecture supporting rapid extension and adaptation<br>
+          • Automated aggregation and reporting of recon data for structured analysis<br><br>
+          <strong>Tools:</strong> Python, Docker<br><br>
+          <strong>Outcome:</strong> Developed a scalable and extensible reconnaissance system suitable for structured security analysis and experimentation, greatly reducing manual effort and increasing coverage for pentesters and researchers.
+        </p>
       </div>
       <div style="padding:2rem">
-        <div style="font-size:0.65rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:1rem">CAPABILITIES</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
-          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">WHOIS</label><span style="font-size:0.8rem;color:var(--accent)">Passive lookup</span></div>
-          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">DNS</label><span style="font-size:0.8rem;color:var(--accent)">A, MX, TXT, NS</span></div>
-          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">SUBDOMAINS</label><span style="font-size:0.8rem;color:var(--accent)">crt.sh API</span></div>
-          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">PORT SCAN</label><span style="font-size:0.8rem;color:var(--accent)">Nmap wrapper</span></div>
-          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">REPORT</label><span style="font-size:0.8rem;color:var(--accent)">HTML / TXT</span></div>
-          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">IMPACT</label><span style="font-size:0.8rem;color:var(--accent)">70% time saved</span></div>
+        <div style="font-size:0.68rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:1rem">At a Glance</div>
+        <ul style="font-size:0.82rem;color:var(--text2);line-height:1.7;padding-left:1.2em;margin-bottom:1.5em">
+          <li>Unified pipeline: Whois, DNS, subdomain discovery, port scan, fingerprinting</li>
+          <li>Concurrent execution dramatically speeds up reconnaissance phases</li>
+          <li>Fully automated HTML/TXT reporting</li>
+          <li>Extensible: new recon modules can be integrated with minimal effort</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag green">PYTHON</span>
+          <span class="tag">DOCKER</span>
+          <span class="tag blue">PARALLELISM</span>
+          <span class="tag blue">MODULARITY</span>
+          <span class="tag">SECURITY AUTOMATION</span>
         </div>
       </div>
     </div>
 
+    <!-- PayloadForge Project -->
     <div class="project-card" style="cursor:pointer" data-project="payloadforge">
       <div class="card-num">02 // OFFENSIVE SECURITY</div>
-      <div class="card-title">PayloadForge</div>
-      <p class="card-desc">Educational payload generation framework with XSS, SQL injection, and command injection modules. Features context-aware templates, multi-encoding (URL, Base64, Hex), obfuscation logic, and JSON export — aligned with OWASP ethical standards.</p>
+      <div class="card-title">PayloadForge — Educational Offensive Security Framework</div>
+      <p class="card-desc">
+        <strong>Problem:</strong> Understanding vulnerabilities requires hands-on exposure to how exploits are constructed and executed.<br><br>
+        <strong>Approach:</strong><br>
+        • Built an OWASP-aligned framework demonstrating real-world exploitation logic:<br>
+        &nbsp;&nbsp;&nbsp;– Cross-Site Scripting (XSS)<br>
+        &nbsp;&nbsp;&nbsp;– SQL Injection<br>
+        &nbsp;&nbsp;&nbsp;– Command Injection<br>
+        • Designed the system for reproducibility and controlled, safe testing environments<br>
+        • Targeted for educational and research use, prioritizing understanding over automation<br><br>
+        <strong>Key Contributions:</strong><br>
+        • Structured exploit-generation workflows reflect real-world attack chains<br>
+        • Demonstrated common pitfalls and how input validation fails<br>
+        • Provided a safe sandbox for vulnerability experimentation and training<br><br>
+        <strong>Tools:</strong> Python, Web Security Tools<br><br>
+        <strong>Outcome:</strong> Enabled systematic exploration of common web vulnerabilities and their root causes, delivering value to students and security enthusiasts learning about exploitation.
+      </p>
       <div class="tag-row">
         <span class="tag green">PYTHON</span>
         <span class="tag blue">XSS</span>
         <span class="tag blue">SQLi</span>
-        <span class="tag">ENCODING</span>
+        <span class="tag blue">CMDi</span>
+        <span class="tag">EDUCATION</span>
         <span class="tag">OWASP</span>
       </div>
     </div>
 
+    <!-- Cloud-Native Microservices Vulnerability Analysis Project -->
+    <div class="project-card" style="cursor:pointer" data-project="cloud-microservices">
+      <div class="card-num">03 // RESEARCH</div>
+      <div class="card-title">Cloud-Native Microservices Vulnerability Analysis (Research Work)</div>
+      <p class="card-desc">
+        <strong>Problem:</strong> Modern microservice architectures introduce complex attack surfaces that traditional scanners and analysis tools frequently miss.<br><br>
+        <strong>Approach:</strong><br>
+        • Analyzed the open-source <em>OWASP crAPI</em> deployed within a Kubernetes environment<br>
+        • Applied static analysis (Ghidra), traffic inspection (Wireshark), and API testing (Burp Suite)<br>
+        • Reconstructed inter-service logic and behavioral flows, mapping out hidden trust boundaries<br><br>
+        <strong>Key Findings:</strong><br>
+        • Exposed business logic inside internal microservices invisible to black-box testers<br>
+        • Identified cross-service authentication bypass and orchestration permission flaws<br>
+        • Surfaced vulnerabilities requiring complex cross-layer analysis, beyond the reach of conventional tools<br><br>
+        <strong>Outcome:</strong> Advanced cloud security research, highlighting the need for multi-layer visibility in modern app assessments and uncovering new vulnerability classes in production-grade microservices.
+      </p>
+      <div class="tag-row">
+        <span class="tag green">GHIDRA</span>
+        <span class="tag blue">KUBERNETES</span>
+        <span class="tag blue">WIRESHARK</span>
+        <span class="tag">BURP SUITE</span>
+        <span class="tag">MICROSERVICES</span>
+        <span class="tag">CLOUD SECURITY</span>
+      </div>
+    </div>
+
+    <!-- IoT Toolkit -->
     <div class="project-card" style="cursor:pointer" data-project="iot-defense">
-      <div class="card-num">03 // HARDWARE / RESEARCH</div>
+      <div class="card-num">04 // HARDWARE / RESEARCH</div>
       <div class="card-title">IoT Attack & Defense Toolkit</div>
-      <p class="card-desc">End-to-end IoT attack & defense research laboratory on ESP32 — firmware reverse engineering, protocol exploitation, and automated threat discovery. Demonstrates MQTT vulnerabilities, firmware extraction with Ghidra, network layer attacks with Wireshark, and CVE-style threat reporting.</p>
+      <p class="card-desc">
+        An end-to-end IoT attack & defense research laboratory on ESP32 — includes firmware reverse engineering, protocol exploitation, and automated threat discovery. Demonstrated MQTT vulnerabilities, performed binary analysis (Ghidra), simulated attacks, and generated CVE-style disclosures for embedded hardware.  
+        <br><br>
+        <strong>Key Highlights:</strong> Custom exploit firmware, binary extractions using esptool.py, traffic capture with Wireshark, and automated reporting for IoT vulnerability research.
+      </p>
       <div class="tag-row">
         <span class="tag green">ESP32</span>
         <span class="tag green">PYTHON</span>
@@ -229,6 +284,26 @@
       </div>
     </div>
 
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="sec-label">// PUBLICATIONS</div>
+  <div style="background:var(--surface);border:1px solid var(--border);padding:2rem 2.5rem;margin-bottom:2rem">
+    <div style="font-family:var(--font-head);font-size:1.15rem;font-weight:700;color:var(--accent);margin-bottom:0.5rem">
+      “Unveiling the Hidden Attack Surface: Reverse Engineering Techniques Applied to Cloud-Native Microservices”
+    </div>
+    <div style="font-size:0.9rem;color:var(--text2);margin-bottom:1rem">
+      Presented at IC-ESGFCR 2026 International Conference
+    </div>
+    <ul style="font-size:0.82rem;color:var(--text2);line-height:1.8;list-style:disc inside;padding-left:1em">
+      <li>Principal researcher leading the analysis and write-up</li>
+      <li>Identified previously undetected vulnerabilities in production microservices</li>
+      <li>Documented the full reverse engineering and reproduction methodology for future research</li>
+      <li>Advanced cloud security understanding by presenting new attack paths at a major international venue</li>
+    </ul>
   </div>
 </section>
 
@@ -236,7 +311,6 @@
 <section id="experience">
   <div class="sec-label">// EXPERIENCE</div>
   <div class="exp-timeline">
-
     <div class="exp-item">
       <div class="exp-dot active"></div>
       <div class="exp-header">
@@ -250,7 +324,6 @@
         <li>Integrated multi-encoding support (URL, Base64, Hex) and obfuscation logic into payload templates</li>
       </ul>
     </div>
-
     <div class="exp-item">
       <div class="exp-dot"></div>
       <div class="exp-header">
@@ -264,7 +337,6 @@
         <li>Researched AI hallucinations and applied prompt engineering to ensure ethical, reliable outputs</li>
       </ul>
     </div>
-
     <div class="exp-item">
       <div class="exp-dot"></div>
       <div class="exp-header">
@@ -279,7 +351,6 @@
         <li>Earned Participation Award for network maintenance and departmental contributions</li>
       </ul>
     </div>
-
   </div>
 </section>
 
@@ -338,120 +409,64 @@
 const projectDetails = {
   reconkit: {
     title: 'ReconKit',
-    description: 'ReconKit is a modular, CLI-based reconnaissance framework designed for penetration testers and security researchers. It automates initial reconnaissance phases by integrating multiple reconnaissance techniques into a single tool. The framework reduces manual reconnaissance time by 70%, allowing security professionals to focus on deeper analysis and exploitation phases.',
-    tools: ['Python', 'Nmap', 'DNS Enumeration', 'crt.sh API', 'WHOIS', 'HTML/CSS', 'Bash'],
-    buildSteps: `1. Install dependencies using pip install -r requirements.txt
-2. Configure API keys for Certificate Transparency (crt.sh) lookups
-3. Set up Nmap on your system (apt-get install nmap on Linux)
-4. Clone the repository and navigate to the directory
-5. Run reconkit.py with --help to see available modules
-6. Use individual modules: --whois, --dns, --subdomains, --portscan, --fingerprint
-7. Generate HTML reports using --report flag
-8. Review findings and combine results for comprehensive recon`,
+    description: 'Concurrent Reconnaissance Framework: Designed a modular reconnaissance framework in Python for large-scale security analysis, implementing parallel scanning, unified pipeline for multiple tech (Whois, DNS, subdomains, port scan, fingerprinting), automated reporting, and Dockerized deployment for reproducibility.',
+    tools: ['Python', 'Docker'],
+    buildSteps: `1. Install dependencies with pip install -r requirements.txt
+2. Configure Docker environment (docker-compose up)
+3. Run reconkit.py for help/options
+4. Use CLI to launch parallel scanning modules
+5. Review generated reports and extend modules as desired`,
     dependencies: [
       'Python 3.8+',
-      'Nmap 7.80+',
-      'requests library',
-      'dnspython library',
-      'beautifulsoup4 for HTML parsing',
-      'jinja2 for report generation',
-      'wget or curl for passive lookups'
+      'Docker',
+      'requests, dnspython, beautifulsoup4, jinja2 (Python packages)'
     ]
   },
   payloadforge: {
     title: 'PayloadForge',
-    description: 'PayloadForge is an educational payload generation framework designed for security training and penetration testing labs. It provides templates for common web vulnerabilities (XSS, SQL Injection, Command Injection) with context-aware customization. Features include multi-level encoding support (URL, Base64, Hex), payload obfuscation, and JSON export capabilities. All payloads are aligned with OWASP ethical standards for educational purposes.',
-    tools: ['Python', 'Jinja2 Templates', 'Base64', 'URL Encoding', 'Regex'],
+    description: 'Educational Offensive Security Framework: Built for demonstrating XSS, SQLi, and CMDi exploit logic in a reproducible, research-driven, and educational context, featuring structured generation workflows and safe input validation experiments for security learning.',
+    tools: ['Python', 'Web Security Tools'],
     buildSteps: `1. Install Python 3.7+
 2. Install required packages: pip install -r requirements.txt
-3. Navigate to the payloadforge directory
-4. Run: python payloadforge.py
-5. Select payload type (xss, sqli, cmdi)
-6. Choose encoding method (none, url, base64, hex)
-7. Customize payload parameters based on target context
-8. Enable obfuscation for advanced polymorphic payloads
-9. Export payload as JSON for integration into testing tools
-10. Review payload logic before deployment in lab environment`,
+3. Launch tool and select exploit module
+4. Configure test payload parameters and experiment
+5. Review exploit flows in educational sandbox`,
     dependencies: [
       'Python 3.7+',
-      'requests',
-      'jinja2',
-      'colorama (for CLI colors)',
-      'json library (built-in)',
-      'urllib library (built-in)'
-    ]
-  },
-  inventory: {
-    title: 'Inventory System',
-    description: 'A comprehensive full-stack inventory management system designed for enterprise-level stock tracking and reporting. Built with Java backend and PHP integration, the system features real-time inventory updates, automated error detection, and comprehensive reporting capabilities. The system reduced operational errors by 30% and won 1st place and Best Project Award at team competition. Includes user authentication, role-based access control, and audit logging.',
-    tools: ['Java', 'PHP', 'MySQL', 'HTML5', 'CSS3', 'JavaScript', 'Apache Server'],
-    buildSteps: `1. Set up MySQL database and import schema file (inventory_schema.sql)
-2. Configure Apache server with PHP support
-3. Clone repository and place in htdocs folder
-4. Update database credentials in config.php
-5. Compile Java backend modules: javac src/*.java
-6. Run Java application server on specified port
-7. Access the system via http://localhost/inventory
-8. Configure user roles and permissions
-9. Import existing inventory data via CSV upload
-10. Set up automated backup scheduled tasks
-11. Run test suite to verify all modules
-12. Deploy to production server`,
-    dependencies: [
-      'Apache Server 2.4+',
-      'PHP 7.4+',
-      'MySQL 5.7+',
-      'Java 11+',
-      'JDBC Driver',
-      'PDO MySQL extension',
-      'curl extension for PHP'
+      'requests, jinja2, colorama',
+      'json, urllib (built-in Python libraries)'
     ]
   },
   'iot-defense': {
     title: 'IoT Attack & Defense Toolkit',
-    description: 'An end-to-end IoT attack & defense research toolkit built on ESP32 microcontroller. This comprehensive platform demonstrates firmware reverse engineering, protocol exploitation, and automated threat discovery. The project simulates real-world IoT vulnerabilities including intentional firmware flaws (hardcoded credentials, buffer overflows, unencrypted channels), MQTT protocol exploitation, network-layer attacks, and complete threat reporting. Covers firmware extraction using esptool.py and Ghidra, network traffic analysis with Wireshark, MITM attacks, and automated vulnerability scanning with Python-based threat reporting.',
-    tools: ['ESP32', 'Python (Scapy/paho-mqtt)', 'Ghidra', 'Wireshark', 'esptool.py', 'Mosquito MQTT', 'Arduino IDE', 'Kali Linux', 'Nmap', 'GitHub Actions'],
-    buildSteps: `PHASE 1: Custom Vulnerable Firmware
-1. Flash deliberately vulnerable MQTT + HTTP firmware onto ESP32
-2. Include intentional flaws: hardcoded credentials, buffer overflows
-3. Simulate IoT device behavior (smart lock, sensor mode)
-4. Deploy on local network for testing
-
-PHASE 2: Firmware Extraction & Reverse Engineering
-1. Install esptool.py: pip install esptool
-2. Extract firmware binary: esptool.py read_flash 0 detected_flash_size firmware.bin
-3. Load firmware into Ghidra for binary analysis
-4. Identify hardcoded secrets, insecure functions, and attack vectors
-5. Document findings in CVE-style vulnerability report
-
-PHASE 3: Network-Layer Attack Simulation
-1. Set up Wireshark to capture MQTT/HTTP traffic
-2. Demonstrate MITM on unencrypted channels
-3. Replay credential harvesting attacks
-4. Optional: Deploy rogue AP using ESP32 built-in WiFi
-5. Capture .pcap files showing attack flow
-
-PHASE 4: Automated Scanning & Threat Reporting
-1. Write Python script using Scapy and paho-mqtt libraries
-2. Auto-scan for exposed MQTT brokers on local network
-3. Fingerprint ESP32 device properties and firmware version
-4. Generate structured JSON threat report
-5. Output CVE-style disclosure document`,
+    description: 'An end-to-end IoT attack & defense research toolkit built on ESP32: firmware reverse engineering, protocol exploitation, and automated threat reporting with custom Python tooling.',
+    tools: ['ESP32', 'Python', 'Ghidra', 'Wireshark'],
+    buildSteps: `1. Flash vulnerable firmware to ESP32
+2. Extract and analyze binaries with Ghidra
+3. Simulate attacks, capture traffic using Wireshark
+4. Use tooling for report automation`,
     dependencies: [
-      'ESP32 Development Board',
-      'esptool.py',
-      'Arduino IDE 1.8.19+ or PlatformIO',
+      'ESP32 board',
       'Python 3.8+',
-      'Ghidra 10.0+',
-      'Wireshark 3.6+',
-      'Mosquito MQTT Broker',
-      'Scapy library',
-      'paho-mqtt library',
-      'Git & GitHub Actions',
-      'Kali Linux or equivalent pentesting distro',
-      'Nmap 7.80+'
+      'Ghidra, Wireshark'
     ]
-  }
+  },
+  // Add a section like this for 'cloud-microservices' if you want its modal to work:
+  // 'cloud-microservices': {
+  //   title: 'Cloud-Native Microservices Vulnerability Analysis',
+  //   description: 'Researched OWASP crAPI deployed in Kubernetes; used static (Ghidra), traffic (Wireshark), and API (Burp) testing to expose microservice trust boundaries, identify authentication bypass, and document orchestration issues.',
+  //   tools: ['Ghidra', 'Wireshark', 'Kubernetes', 'Burp Suite'],
+  //   buildSteps: `1. Deploy crAPI to Kubernetes cluster
+// 2. Use Ghidra for static analysis, Wireshark to inspect inter-service traffic
+// 3. Perform Burp Suite API tests
+// 4. Document vulnerabilities, cross-layer interactions`,
+//   dependencies: [
+//     'Kubernetes',
+//     'Ghidra',
+//     'Wireshark',
+//     'Burp Suite'
+//   ]
+// }
 };
 
 function openModal(projectKey) {
@@ -467,7 +482,7 @@ function openModal(projectKey) {
     `<span class="modal-tool-tag active">${tool}</span>`
   ).join('');
 
-  // Generate build steps with <br> tags for better formatting in Word
+  // Generate build steps with <br> tags for better formatting
   const buildStepsContainer = document.getElementById('modalBuildSteps');
   buildStepsContainer.innerHTML = project.buildSteps
     .split('\n')
@@ -491,7 +506,6 @@ function closeModal() {
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('[data-project]').forEach(card => {
     card.addEventListener('click', function(e) {
-      // Don't open modal if clicking on links inside card
       if (e.target.tagName === 'A') return;
       const projectKey = this.getAttribute('data-project');
       openModal(projectKey);
@@ -513,3 +527,5 @@ document.addEventListener('keydown', function(e) {
   }
 });
 </script>
+</body>
+</html>

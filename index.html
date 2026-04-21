@@ -1,0 +1,512 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0a0c0f;--surface:#111418;--surface2:#181c22;
+    --accent:#00ff88;--accent2:#00c4ff;--muted:#4a5568;
+    --text:#e2e8f0;--text2:#94a3b8;--border:#1e2530;
+    --font-mono:'Share Tech Mono',monospace;
+    --font-head:'Syne',sans-serif;
+  }
+  body{background:var(--bg);color:var(--text);font-family:var(--font-mono);overflow-x:hidden}
+  .scanline{position:fixed;top:0;left:0;width:100%;height:2px;background:rgba(0,255,136,0.15);animation:scan 6s linear infinite;pointer-events:none;z-index:999}
+  @keyframes scan{0%{top:-2px}100%{top:100%}}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,12,15,0.95);backdrop-filter:blur(8px);z-index:100}
+  .logo{font-family:var(--font-head);font-weight:800;font-size:1.1rem;color:var(--accent);letter-spacing:-0.02em}
+  .logo span{color:var(--text2)}
+  .nav-links{display:flex;gap:2rem}
+  .nav-links a{color:var(--text2);text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;transition:color 0.2s}
+  .nav-links a:hover{color:var(--accent)}
+  .hero{padding:7rem 3rem 5rem;max-width:900px;margin:0 auto}
+  .hero-tag{font-size:0.72rem;letter-spacing:0.2em;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+  .hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
+  h1{font-family:var(--font-head);font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+  h1 .dim{color:var(--muted)}
+  h1 .hi{color:var(--accent)}
+  .hero-sub{font-size:0.85rem;color:var(--text2);line-height:1.9;max-width:620px;margin-bottom:2.5rem}
+  .badges{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:3rem}
+  .badge{font-size:0.68rem;letter-spacing:0.12em;padding:4px 12px;border:1px solid var(--border);color:var(--text2);background:var(--surface)}
+  .badge.hot{border-color:var(--accent);color:var(--accent)}
+  .cta-row{display:flex;gap:1rem;flex-wrap:wrap}
+  .btn{font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.1em;padding:10px 22px;border:1px solid;cursor:pointer;text-decoration:none;transition:all 0.2s}
+  .btn-primary{background:var(--accent);color:#000;border-color:var(--accent)}
+  .btn-primary:hover{background:transparent;color:var(--accent)}
+  .btn-ghost{background:transparent;color:var(--text2);border-color:var(--border)}
+  .btn-ghost:hover{border-color:var(--accent2);color:var(--accent2)}
+  section{padding:4rem 3rem;max-width:1000px;margin:0 auto}
+  .sec-label{font-size:0.7rem;letter-spacing:0.2em;color:var(--accent);margin-bottom:2.5rem;display:flex;align-items:center;gap:0.75rem}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+  .about-bio{font-size:0.82rem;color:var(--text2);line-height:1.95;margin-bottom:1rem}
+  .skill-list{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem}
+  .skill-item{font-size:0.72rem;color:var(--text2);padding:6px 10px;border-left:2px solid var(--border);display:flex;align-items:center;gap:6px}
+  .skill-item::before{content:'';width:4px;height:4px;background:var(--accent);flex-shrink:0}
+
+  /* PROJECTS */
+  .project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)}
+  .project-card{background:var(--surface);padding:1.75rem;position:relative;overflow:hidden;transition:background 0.2s}
+  .project-card:hover{background:var(--surface2)}
+  .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background 0.2s}
+  .project-card:hover::before{background:var(--accent)}
+  .card-num{font-size:0.65rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:1rem}
+  .card-title{font-family:var(--font-head);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+  .card-desc{font-size:0.78rem;color:var(--text2);line-height:1.7;margin-bottom:1.25rem}
+  .tag-row{display:flex;flex-wrap:wrap;gap:0.4rem}
+  .tag{font-size:0.62rem;letter-spacing:0.1em;padding:3px 9px;background:var(--bg);border:1px solid var(--border);color:var(--muted)}
+  .tag.green{border-color:#1a3a2a;color:#00cc6a;background:#0a1f13}
+  .tag.blue{border-color:#0e2d45;color:#00b4e6;background:#06171f}
+  .tag.amber{border-color:#3a2a0a;color:#e6a000;background:#1f160a}
+  
+
+  /* EXPERIENCE */
+  .exp-timeline{position:relative;padding-left:2rem}
+  .exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+  .exp-item{position:relative;margin-bottom:2.75rem}
+  .exp-item:last-child{margin-bottom:0}
+  .exp-dot{position:absolute;left:-2.35rem;top:5px;width:10px;height:10px;border:1px solid var(--accent);background:var(--bg);transform:rotate(45deg)}
+  .exp-dot.active{background:var(--accent)}
+  .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.3rem}
+  .exp-role{font-family:var(--font-head);font-size:0.98rem;font-weight:700;color:var(--text)}
+  .exp-date{font-size:0.65rem;letter-spacing:0.12em;color:var(--accent);white-space:nowrap}
+  .exp-company{font-size:0.72rem;letter-spacing:0.1em;color:var(--accent2);margin-bottom:0.75rem}
+  .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+  .exp-bullets li{font-size:0.78rem;color:var(--text2);line-height:1.7;padding-left:1rem;position:relative}
+  .exp-bullets li::before{content:'>';position:absolute;left:0;color:var(--accent)}
+
+  /* CONTACT */
+  .contact-block{border:1px solid var(--border);padding:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
+  .contact-left h2{font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:0.5rem}
+  .contact-left p{font-size:0.8rem;color:var(--text2)}
+  .contact-links{display:flex;flex-direction:column;gap:0.75rem}
+  .contact-link{font-size:0.78rem;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s}
+  .contact-link:hover{color:var(--accent)}
+  .contact-link span{color:var(--muted)}
+  footer{border-top:1px solid var(--border);padding:1.5rem 3rem;display:flex;justify-content:space-between;font-size:0.68rem;color:var(--muted);letter-spacing:0.08em}
+
+  /* MODAL */
+  .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,12,15,0.95);backdrop-filter:blur(8px);z-index:999;justify-content:center;align-items:center;padding:1rem}
+  .modal.active{display:flex}
+  .modal-content{background:var(--surface);border:1px solid var(--border);max-width:600px;width:100%;max-height:85vh;overflow-y:auto;padding:2rem;position:relative;animation:slideUp 0.3s ease-out}
+  @keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .modal-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--text2);cursor:pointer;font-size:1.5rem;transition:color 0.2s}
+  .modal-close:hover{color:var(--accent)}
+  .modal-title{font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:0.5rem}
+  .modal-section{margin-bottom:2rem}
+  .modal-section-label{font-size:0.7rem;letter-spacing:0.15em;color:var(--accent);text-transform:uppercase;margin-bottom:0.75rem;display:block}
+  .modal-section-content{font-size:0.82rem;color:var(--text2);line-height:1.8}
+  .modal-tools{display:flex;flex-wrap:wrap;gap:0.5rem}
+  .modal-tool-tag{font-size:0.72rem;padding:5px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text2);border-radius:2px}
+  .modal-tool-tag.active{border-color:var(--accent);color:var(--accent)}
+  .modal-deps{list-style:none;padding-left:0}
+  .modal-deps li{font-size:0.82rem;color:var(--text2);padding:8px 0;padding-left:1.25rem;position:relative}
+  .modal-deps li::before{content:'→';position:absolute;left:0;color:var(--accent)}
+
+  @media(max-width:640px){
+    nav,section,.hero{padding-left:1.5rem;padding-right:1.5rem}
+    .about-grid{grid-template-columns:1fr}
+    .contact-block{flex-direction:column;align-items:flex-start}
+    footer{flex-direction:column;gap:0.5rem}
+    .nav-links{gap:1rem}
+    .modal-content{max-height:90vh;padding:1.5rem}
+  }
+</style>
+
+<div class="scanline"></div>
+
+<nav>
+  <div class="logo">A.S<span>.dev</span></div>
+  <div class="nav-links">
+    <a href="#about">about</a>
+    <a href="#projects">projects</a>
+    <a href="#experience">experience</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">CYBERSECURITY // AI/ML // NETWORKING ENGINEER</div>
+  <h1><span class="dim">Hi, I'm</span><br><span class="hi">Amna Shabir</span></h1>
+  <p class="hero-sub">Results-driven IT & Cybersecurity professional with 2.5+ years of hands-on experience in penetration testing, network security, and AI/ML development. I build recon frameworks, AI-powered automation, and secure network infrastructures.</p>
+  <div class="badges">
+    <span class="badge hot">OFFENSIVE SECURITY</span>
+    <span class="badge hot">AI / ML</span>
+    <span class="badge">PENETRATION TESTING</span>
+    <span class="badge">PYTHON / KALI LINUX</span>
+    <span class="badge">DIGITAL FORENCICS</span>
+    <span class="badge">GOOGLE CYBER CERT</span>
+  </div>
+  <div class="cta-row">
+    <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
+    <a href="#contact" class="btn btn-ghost">GET IN TOUCH</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label">// ABOUT</div>
+  <div class="about-grid">
+    <div>
+      <p class="about-bio">I'm a cybersecurity and AI/ML professional with <strong style="color:var(--text)">2.5+</strong> years of experience, building offensive security tooling , Reverse engineering frameworks and IOT firmware.</p>
+      <p class="about-bio">My work spans CLI-based vulnerability tools, AI-powered automation systems, network configuration, Reverse Engineering and IoT. I hold a <strong style="color:var(--text)">Google Cybersecurity Professional Certificate</strong> and multiple Cisco Networking Academy certifications.</p>
+      <p class="about-bio">Currently pursuing a B.S. in Information Technology at <strong style="color:var(--text)">Shaheed Benazir Bhutto University</strong> (2024–2028).</p>
+    </div>
+    <div>
+      <div style="font-size:0.68rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:1rem">SKILLS // STACK</div>
+      <div class="skill-list">
+        <div class="skill-item">Ghidra / IOT</div>
+        <div class="skill-item">Penetration Testing</div>
+        <div class="skill-item">Linux / Bash</div>
+        <div class="skill-item">NLP / LLMs</div>
+        <div class="skill-item">OWASP</div>
+        <div class="skill-item">Python</div>
+        <div class="skill-item">Machine Learning</div>
+        <div class="skill-item">SQL</div>
+         <div class="skill-item">SIEM Tools</div>
+        <div class="skill-item">Cisco Networking</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">// PROJECTS</div>
+  <div class="project-grid">
+
+    <div class="project-card" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0;cursor:pointer" data-project="reconkit">
+      <div style="padding:2rem;border-right:1px solid var(--border)">
+        <div style="display:inline-block;font-size:0.62rem;letter-spacing:0.15em;padding:3px 10px;background:#0d1f17;border:1px solid #1a4a2a;color:#00dd77;margin-bottom:1rem">FEATURED // OFFENSIVE TOOLING</div>
+        <div class="card-title" style="font-size:1.3rem;margin-bottom:0.75rem">ReconKit</div>
+        <p class="card-desc">Modular CLI-based reconnaissance framework integrating WHOIS lookup, DNS enumeration, subdomain discovery via crt.sh (Certificate Transparency), port scanning via Nmap, banner grabbing, and technology fingerprinting. Reduced manual recon time by 70%.</p>
+        <div class="tag-row">
+          <span class="tag green">PYTHON</span>
+          <span class="tag green">NMAP</span>
+          <span class="tag blue">PASSIVE RECON</span>
+          <span class="tag blue">DNS</span>
+          <span class="tag">OWASP</span>
+          <span class="tag">HTML REPORTS</span>
+        </div>
+      </div>
+      <div style="padding:2rem">
+        <div style="font-size:0.65rem;letter-spacing:0.15em;color:var(--muted);margin-bottom:1rem">CAPABILITIES</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">WHOIS</label><span style="font-size:0.8rem;color:var(--accent)">Passive lookup</span></div>
+          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">DNS</label><span style="font-size:0.8rem;color:var(--accent)">A, MX, TXT, NS</span></div>
+          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">SUBDOMAINS</label><span style="font-size:0.8rem;color:var(--accent)">crt.sh API</span></div>
+          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">PORT SCAN</label><span style="font-size:0.8rem;color:var(--accent)">Nmap wrapper</span></div>
+          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">REPORT</label><span style="font-size:0.8rem;color:var(--accent)">HTML / TXT</span></div>
+          <div><label style="font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:2px">IMPACT</label><span style="font-size:0.8rem;color:var(--accent)">70% time saved</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" style="cursor:pointer" data-project="payloadforge">
+      <div class="card-num">02 // OFFENSIVE SECURITY</div>
+      <div class="card-title">PayloadForge</div>
+      <p class="card-desc">Educational payload generation framework with XSS, SQL injection, and command injection modules. Features context-aware templates, multi-encoding (URL, Base64, Hex), obfuscation logic, and JSON export — aligned with OWASP ethical standards.</p>
+      <div class="tag-row">
+        <span class="tag green">PYTHON</span>
+        <span class="tag blue">XSS</span>
+        <span class="tag blue">SQLi</span>
+        <span class="tag">ENCODING</span>
+        <span class="tag">OWASP</span>
+      </div>
+    </div>
+
+    <div class="project-card" style="cursor:pointer" data-project="iot-defense">
+      <div class="card-num">03 // HARDWARE / RESEARCH</div>
+      <div class="card-title">IoT Attack & Defense Toolkit</div>
+      <p class="card-desc">End-to-end IoT attack & defense research laboratory on ESP32 — firmware reverse engineering, protocol exploitation, and automated threat discovery. Demonstrates MQTT vulnerabilities, firmware extraction with Ghidra, network layer attacks with Wireshark, and CVE-style threat reporting.</p>
+      <div class="tag-row">
+        <span class="tag green">ESP32</span>
+        <span class="tag green">PYTHON</span>
+        <span class="tag blue">REVERSE ENGINEERING</span>
+        <span class="tag blue">MQTT</span>
+        <span class="tag">GHIDRA</span>
+        <span class="tag">WIRESHARK</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-label">// EXPERIENCE</div>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-dot active"></div>
+      <div class="exp-header">
+        <div class="exp-role">Offensive Security Intern</div>
+        <div class="exp-date">JAN 2026 — APRIl 2026</div>
+      </div>
+      <div class="exp-company">ITSOLERA PVT LTD // ISLAMABAD, PAKISTAN</div>
+      <ul class="exp-bullets">
+        <li>Built ReconKit — modular CLI recon framework cutting manual recon time by 70%</li>
+        <li>Engineered PayloadForge — educational payload generator with XSS, SQLi, and CMDi modules aligned with OWASP standards</li>
+        <li>Integrated multi-encoding support (URL, Base64, Hex) and obfuscation logic into payload templates</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-header">
+        <div class="exp-role">AI / ML Intern</div>
+        <div class="exp-date">SEP 2025 — NOV 2025</div>
+      </div>
+      <div class="exp-company">ZENITHCRAFT VENTURES (PVT) LTD // LAHORE, PAKISTAN</div>
+      <ul class="exp-bullets">
+        <li>Engineered AI story teller using two LLMs and prompt templates, reducing manual effort by 40%</li>
+        <li>Collaborated on live AI/ML model development, solving data processing issues to boost accuracy</li>
+        <li>Researched AI hallucinations and applied prompt engineering to ensure ethical, reliable outputs</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-header">
+        <div class="exp-role">IT & Software Intern</div>
+        <div class="exp-date">JUL 2025 — AUG 2025</div>
+      </div>
+      <div class="exp-company">SUKKUR BEVERAGES PVT. LTD. — PEPSICO FRANCHISE // SUKKUR, PAKISTAN</div>
+      <ul class="exp-bullets">
+        <li>Built AI chatbot for sales team using NLP APIs, improving query resolution by 25%</li>
+        <li>Configured VLANs and remote access in Cisco Packet Tracer for network security prep</li>
+        <li>Led team to 1st place and Best Project Award in IT competition</li>
+        <li>Earned Participation Award for network maintenance and departmental contributions</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">// CONTACT</div>
+  <div class="contact-block">
+    <div class="contact-left">
+      <h2>Let's work together</h2>
+      <p>Open to security roles, AI/ML projects, and freelance pentesting engagements.</p>
+    </div>
+    <div class="contact-links">
+      <a href="https://github.com/Annashah" class="contact-link"><span>GITHUB //</span> github.com/Annashah</a>
+      <a href="mailto:amna.shabir1741@gmail.com" class="contact-link"><span>EMAIL //</span> amna.shabir1741@gmail.com</a>
+      <a href="https://www.linkedin.com/in/amnashabir-344769375" class="contact-link"><span>LINKEDIN //</span> linkedin.com/in/amnashabir-344769375</a>
+      <a href="#" class="contact-link"><span>LOCATION //</span> Shaheed Benazirabad, Sindh, Pakistan</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>AMNA SHABIR // CYBERSECURITY & AI/ML</span>
+  <span>ITSOLERA CYBER · SBBU 2028</span>
+</footer>
+
+<!-- PROJECT DETAILS MODAL -->
+<div class="modal" id="projectModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h2 class="modal-title" id="modalProjectTitle">Project Name</h2>
+    
+    <div class="modal-section">
+      <label class="modal-section-label">Description</label>
+      <div class="modal-section-content" id="modalDescription"></div>
+    </div>
+
+    <div class="modal-section">
+      <label class="modal-section-label">Tools & Technologies</label>
+      <div class="modal-tools" id="modalTools"></div>
+    </div>
+
+    <div class="modal-section">
+      <label class="modal-section-label">How to Build It</label>
+      <div class="modal-section-content" id="modalBuildSteps"></div>
+    </div>
+
+    <div class="modal-section">
+      <label class="modal-section-label">Dependencies</label>
+      <ul class="modal-deps" id="modalDependencies"></ul>
+    </div>
+  </div>
+</div>
+
+<script>
+// Project Details Database
+const projectDetails = {
+  reconkit: {
+    title: 'ReconKit',
+    description: 'ReconKit is a modular, CLI-based reconnaissance framework designed for penetration testers and security researchers. It automates initial reconnaissance phases by integrating multiple reconnaissance techniques into a single tool. The framework reduces manual reconnaissance time by 70%, allowing security professionals to focus on deeper analysis and exploitation phases.',
+    tools: ['Python', 'Nmap', 'DNS Enumeration', 'crt.sh API', 'WHOIS', 'HTML/CSS', 'Bash'],
+    buildSteps: `1. Install dependencies using pip install -r requirements.txt
+2. Configure API keys for Certificate Transparency (crt.sh) lookups
+3. Set up Nmap on your system (apt-get install nmap on Linux)
+4. Clone the repository and navigate to the directory
+5. Run reconkit.py with --help to see available modules
+6. Use individual modules: --whois, --dns, --subdomains, --portscan, --fingerprint
+7. Generate HTML reports using --report flag
+8. Review findings and combine results for comprehensive recon`,
+    dependencies: [
+      'Python 3.8+',
+      'Nmap 7.80+',
+      'requests library',
+      'dnspython library',
+      'beautifulsoup4 for HTML parsing',
+      'jinja2 for report generation',
+      'wget or curl for passive lookups'
+    ]
+  },
+  payloadforge: {
+    title: 'PayloadForge',
+    description: 'PayloadForge is an educational payload generation framework designed for security training and penetration testing labs. It provides templates for common web vulnerabilities (XSS, SQL Injection, Command Injection) with context-aware customization. Features include multi-level encoding support (URL, Base64, Hex), payload obfuscation, and JSON export capabilities. All payloads are aligned with OWASP ethical standards for educational purposes.',
+    tools: ['Python', 'Jinja2 Templates', 'Base64', 'URL Encoding', 'Regex'],
+    buildSteps: `1. Install Python 3.7+
+2. Install required packages: pip install -r requirements.txt
+3. Navigate to the payloadforge directory
+4. Run: python payloadforge.py
+5. Select payload type (xss, sqli, cmdi)
+6. Choose encoding method (none, url, base64, hex)
+7. Customize payload parameters based on target context
+8. Enable obfuscation for advanced polymorphic payloads
+9. Export payload as JSON for integration into testing tools
+10. Review payload logic before deployment in lab environment`,
+    dependencies: [
+      'Python 3.7+',
+      'requests',
+      'jinja2',
+      'colorama (for CLI colors)',
+      'json library (built-in)',
+      'urllib library (built-in)'
+    ]
+  },
+  inventory: {
+    title: 'Inventory System',
+    description: 'A comprehensive full-stack inventory management system designed for enterprise-level stock tracking and reporting. Built with Java backend and PHP integration, the system features real-time inventory updates, automated error detection, and comprehensive reporting capabilities. The system reduced operational errors by 30% and won 1st place and Best Project Award at team competition. Includes user authentication, role-based access control, and audit logging.',
+    tools: ['Java', 'PHP', 'MySQL', 'HTML5', 'CSS3', 'JavaScript', 'Apache Server'],
+    buildSteps: `1. Set up MySQL database and import schema file (inventory_schema.sql)
+2. Configure Apache server with PHP support
+3. Clone repository and place in htdocs folder
+4. Update database credentials in config.php
+5. Compile Java backend modules: javac src/*.java
+6. Run Java application server on specified port
+7. Access the system via http://localhost/inventory
+8. Configure user roles and permissions
+9. Import existing inventory data via CSV upload
+10. Set up automated backup scheduled tasks
+11. Run test suite to verify all modules
+12. Deploy to production server`,
+    dependencies: [
+      'Apache Server 2.4+',
+      'PHP 7.4+',
+      'MySQL 5.7+',
+      'Java 11+',
+      'JDBC Driver',
+      'PDO MySQL extension',
+      'curl extension for PHP'
+    ]
+  },
+  'iot-defense': {
+    title: 'IoT Attack & Defense Toolkit',
+    description: 'An end-to-end IoT attack & defense research toolkit built on ESP32 microcontroller. This comprehensive platform demonstrates firmware reverse engineering, protocol exploitation, and automated threat discovery. The project simulates real-world IoT vulnerabilities including intentional firmware flaws (hardcoded credentials, buffer overflows, unencrypted channels), MQTT protocol exploitation, network-layer attacks, and complete threat reporting. Covers firmware extraction using esptool.py and Ghidra, network traffic analysis with Wireshark, MITM attacks, and automated vulnerability scanning with Python-based threat reporting.',
+    tools: ['ESP32', 'Python (Scapy/paho-mqtt)', 'Ghidra', 'Wireshark', 'esptool.py', 'Mosquito MQTT', 'Arduino IDE', 'Kali Linux', 'Nmap', 'GitHub Actions'],
+    buildSteps: `PHASE 1: Custom Vulnerable Firmware
+1. Flash deliberately vulnerable MQTT + HTTP firmware onto ESP32
+2. Include intentional flaws: hardcoded credentials, buffer overflows
+3. Simulate IoT device behavior (smart lock, sensor mode)
+4. Deploy on local network for testing
+
+PHASE 2: Firmware Extraction & Reverse Engineering
+1. Install esptool.py: pip install esptool
+2. Extract firmware binary: esptool.py read_flash 0 detected_flash_size firmware.bin
+3. Load firmware into Ghidra for binary analysis
+4. Identify hardcoded secrets, insecure functions, and attack vectors
+5. Document findings in CVE-style vulnerability report
+
+PHASE 3: Network-Layer Attack Simulation
+1. Set up Wireshark to capture MQTT/HTTP traffic
+2. Demonstrate MITM on unencrypted channels
+3. Replay credential harvesting attacks
+4. Optional: Deploy rogue AP using ESP32 built-in WiFi
+5. Capture .pcap files showing attack flow
+
+PHASE 4: Automated Scanning & Threat Reporting
+1. Write Python script using Scapy and paho-mqtt libraries
+2. Auto-scan for exposed MQTT brokers on local network
+3. Fingerprint ESP32 device properties and firmware version
+4. Generate structured JSON threat report
+5. Output CVE-style disclosure document`,
+    dependencies: [
+      'ESP32 Development Board',
+      'esptool.py',
+      'Arduino IDE 1.8.19+ or PlatformIO',
+      'Python 3.8+',
+      'Ghidra 10.0+',
+      'Wireshark 3.6+',
+      'Mosquito MQTT Broker',
+      'Scapy library',
+      'paho-mqtt library',
+      'Git & GitHub Actions',
+      'Kali Linux or equivalent pentesting distro',
+      'Nmap 7.80+'
+    ]
+  }
+};
+
+function openModal(projectKey) {
+  const project = projectDetails[projectKey];
+  if (!project) return;
+
+  document.getElementById('modalProjectTitle').textContent = project.title;
+  document.getElementById('modalDescription').textContent = project.description;
+  
+  // Generate tools
+  const toolsContainer = document.getElementById('modalTools');
+  toolsContainer.innerHTML = project.tools.map(tool => 
+    `<span class="modal-tool-tag active">${tool}</span>`
+  ).join('');
+  
+  // Generate build steps
+  document.getElementById('modalBuildSteps').textContent = project.buildSteps;
+  
+  // Generate dependencies
+  const depsContainer = document.getElementById('modalDependencies');
+  depsContainer.innerHTML = project.dependencies.map(dep => 
+    `<li>${dep}</li>`
+  ).join('');
+  
+  document.getElementById('projectModal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('projectModal').classList.remove('active');
+}
+
+// Add click listeners to all project cards
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[data-project]').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't open modal if clicking on links inside card
+      if (e.target.tagName === 'A') return;
+      const projectKey = this.getAttribute('data-project');
+      openModal(projectKey);
+    });
+  });
+});
+
+// Close modal when clicking outside
+document.getElementById('projectModal')?.addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+</script>
